@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1073983275897",
+    "project_id": "rentingcar-e68e2",
+    "storage_bucket": "rentingcar-e68e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073983275897:android:b0276deec5fc3e7db665a8",
+        "android_client_info": {
+          "package_name": "com.example.fisrtflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073983275897-t6fmedkgd3duvm1dl7reggra0vs2epbu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fisrtflutter",
+            "certificate_hash": "9fa383372c16b05d3bc0cdf007bd73e6ccf9ac67"
+          }
+        },
+        {
+          "client_id": "1073983275897-knbopqatdbjldo5o565n7nb4ivcvhcun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCebpbZlvwrE0AIs0zMRDmHSkOICt4DQV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073983275897-knbopqatdbjldo5o565n7nb4ivcvhcun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

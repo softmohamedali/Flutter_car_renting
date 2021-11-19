@@ -1,10 +1,7 @@
-abstract class ResultState{
-  late String data;
-  late String msg;
-  ResultState({
-    data="",
-    msg=""
-  }){}
+class ResultState{
+  String? data;
+  String? msg;
+
 
 }
 

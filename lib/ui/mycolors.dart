@@ -8,4 +8,5 @@ class MyColors{
   static final black=Color.fromRGBO(0, 0, 0, 1.0);
   static final text_2=Color.fromRGBO(69, 69, 69, 1.0);
   static final text_1=Color.fromRGBO(0, 0, 0, 1.0);
+  static final red=Color.fromRGBO(212, 4, 4, 1.0);
 }

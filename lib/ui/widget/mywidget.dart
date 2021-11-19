@@ -2,15 +2,7 @@ import 'package:fisrtflutter/ui/mycolors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget CustomBottomSheet()
-{
-  return Container(
-    width: double.infinity,
-    height: 200,
-    alignment: Alignment.center,
-    child:Text("hi there"),
-  );
-}
+
 
 AppBar CustomToolBar({
   required String title,
