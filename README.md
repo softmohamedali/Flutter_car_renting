@@ -2,28 +2,25 @@
 
 A new Flutter project.
 
-# cima-movie
+# moali car
 ## features
 - Authentication (Log in ,Register)
-- show Products
+- show cars
 - search
 - save in favorits
 - log out
-- add Product only for admin from the app by particular email
-- add to payment and chose quantity  and size
-- modify quantity and delete it 
-- chose yor location to deliver it by google map and set base information
-- 
+- add your cars to sell it
+- notification
 
 ## Technology i used it
-- room db
-- retrofit 
-- Navigation component
-- Live Data
-- Dependency injection (hilt degger)
-- Coroutine
-- databinding , viewbinding
-
+- sqflite
+- firebase firestore
+- firebase dataStorage
+- firebase Auth
+- Navigation
+- getx
+- Dependency injection (binding)
+- async await
 <br/>
 
 ## Log in 🌴🌴
