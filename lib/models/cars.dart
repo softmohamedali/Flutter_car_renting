@@ -1,9 +1,9 @@
 import 'package:fisrtflutter/utils/constants.dart';
 
 class Cars{
-  late String name,model,img,numHorse,numHand,motorSize;
-  late String numKiloMeter,color,gerType,carStstus,motorType;
-  late String location,paymType,certificType,certificEnd,phone,specials;
+  late String name,model,img,numHorse,numHand,motorSize,price;
+  late String numKiloMeter,color,gerType,carStstus,fuelType;
+  late String location,paymType,certificExsit,certificEnd,phone,note,userId;
   Cars({
     required this.name,
     required this.model,
@@ -15,13 +15,15 @@ class Cars{
     required this.color,
     required this.gerType,
     required this.carStstus,
-    required this.motorType,
+    required this.fuelType,
     required this.location,
     required this.paymType,
-    required this.certificType,
+    required this.certificExsit,
     required this.certificEnd,
     required this.phone,
-    required this.specials,
+    required this.note,
+    required this.price,
+    required this.userId,
   }){}
 
   Cars.fromJson(Map<dynamic, dynamic> map) {
@@ -35,13 +37,15 @@ class Cars{
     color = map[Constats.CARS_COLOR];
     gerType = map[Constats.CARS_GER_TYPE];
     carStstus = map[Constats.CARS_STATUS];
-    motorType = map[Constats.CARS_MOTOR_TYPE];
+    fuelType = map[Constats.CARS_FUEL_TYPE];
     location = map[Constats.CARS_LOCATION];
     paymType = map[Constats.CARS_PAYM_TYPE];
-    certificType = map[Constats.CARS_CERTIFIC_TYPE];
+    certificExsit = map[Constats.CARS_CERTIFIC_EXSIT];
     certificEnd = map[Constats.CARS_CERIFIC_END];
     phone = map[Constats.CARS_PHONE];
-    specials=map[Constats.CARS_SPEIALS];
+    note=map[Constats.CARS_NOTE];
+    price=map[Constats.CARS_PRICE];
+    userId=map[Constats.USER_ID];
   }
 
   toJson() {
@@ -56,13 +60,15 @@ class Cars{
       Constats.CARS_COLOR:color,
       Constats.CARS_GER_TYPE:gerType,
       Constats.CARS_STATUS:carStstus,
-      Constats.CARS_MOTOR_TYPE:motorType,
+      Constats.CARS_FUEL_TYPE:fuelType,
       Constats.CARS_LOCATION:location,
       Constats.CARS_PAYM_TYPE:paymType,
-      Constats.CARS_CERTIFIC_TYPE:certificType,
+      Constats.CARS_CERTIFIC_EXSIT:certificExsit,
       Constats.CARS_CERIFIC_END:certificEnd,
       Constats.CARS_PHONE:phone,
-      Constats.CARS_SPEIALS:specials,
+      Constats.CARS_NOTE:note,
+      Constats.CARS_PRICE:price,
+      Constats.USER_ID:userId,
     };
   }
 }

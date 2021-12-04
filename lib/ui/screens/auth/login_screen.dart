@@ -1,5 +1,5 @@
-import 'package:fisrtflutter/ui/mycolors.dart';
-import 'package:fisrtflutter/ui/screens/register_screen.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
+import 'package:fisrtflutter/ui/screens/auth/register_screen.dart';
 import 'package:fisrtflutter/view_models/auth_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -129,7 +129,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
           Center(
             child: GetX<AuthViewModel>(
                    builder:  (contrller) =>
-                       controller.showLoginProgrees.value ? CircularProgressIndicator():Center(),
+                   contrller.showLoginProgrees.value ? CircularProgressIndicator():Center(),
             ),
           )
         ],

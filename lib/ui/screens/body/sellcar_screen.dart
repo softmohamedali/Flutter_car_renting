@@ -1,27 +1,23 @@
-import 'package:fisrtflutter/ui/mycolors.dart';
-import 'package:fisrtflutter/ui/mysizes.dart';
+import 'package:fisrtflutter/ui/widget/mywidget.dart';
 import 'package:fisrtflutter/ui/widget/search_company_dialog.dart';
-import 'package:fisrtflutter/utils/main_layout_state.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
+import 'package:fisrtflutter/utils/mysizes.dart';
+import 'package:fisrtflutter/ui/widget/car_item_widget.dart';
 import 'package:fisrtflutter/view_models/main_layout_viewmodel.dart';
 import 'package:fisrtflutter/view_models/sell_car_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 class SellCarScreen extends GetWidget {
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  var textControoler = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: Text('sell car'),
-      ),
+      appBar: CustomToolBar(title: "Sell My Car",showBack: false),
       floatingActionButton: GetX<MainLayoutViewModel>(
         builder: (controller) => FloatingActionButton(
           onPressed: () {
@@ -38,13 +34,40 @@ class SellCarScreen extends GetWidget {
           child: Icon(controller.bottomFabIcon.value),
         ),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: GetX<SellCarViewModel>(
+          builder:(controller) => ListView.builder(
+              itemBuilder: (context, index) {
+                return ProductItem(
+                    name:controller.myCarsSels[index].name,
+                    image:controller.myCarsSels[index].img,
+                    isfav:true,
+                    model:controller.myCarsSels[index].location,
+                    feaut:"",
+                    location:"",
+                    km:"",
+                    speed:"",
+                    car:controller.myCarsSels[index],
+                );
+              },
+            itemCount:controller.myCarsSels.length,
+            scrollDirection: Axis.vertical,
+          ),
+        ),
+      ),
     );
   }
 }
 
 Widget CustomBottomSheet(
-    {required GlobalKey<FormState> formkey, required BuildContext context}) {
+    {
+      required GlobalKey<FormState> formkey,
+      required BuildContext context
+    })
+{
   var controller = Get.find<SellCarViewModel>();
+
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Stack(
@@ -82,7 +105,7 @@ Widget CustomBottomSheet(
                           builder: (mycontroller) => Container(
                             width: 100,
                             height: 100,
-                            child: mycontroller.img.value == null
+                            child: mycontroller.imymg.value == null
                                 ? Container(
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
@@ -96,9 +119,9 @@ Widget CustomBottomSheet(
                                     ),
                                   )
                                 : CircleAvatar(
-                                    backgroundImage: mycontroller.img.value == null
+                                    backgroundImage: mycontroller.imymg.value == null
                                         ? null
-                                        : FileImage(mycontroller.img.value!),
+                                        : FileImage(mycontroller.imymg.value!),
                                   ),
                           ),
                         ),
@@ -119,55 +142,43 @@ Widget CustomBottomSheet(
                   SizedBox(
                     height: 30,
                   ),
-                  TextFormField(
-                    readOnly: true,
-                    onTap: () {
-                      Get.defaultDialog(
-                        content: MyDialogLogIn(
-                            OnregisterbuttonTap: () {},
-                            OnlogbuttonTap: () {},
-                            context: context),
-                      );
-                    },
-                    decoration: InputDecoration(
-                      labelText: "companies and models *",
+                  GetX<SellCarViewModel>(
+                    builder:(controller) =>TextFormField(
+                      controller:TextEditingController(text: controller.name.value),
+                      decoration: InputDecoration(
+                        labelText: "companies Name *",
+                      ),
+                      onChanged: (value) {
+                        controller.name.value=value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Select Company",
+                          content: SearchCompanyDialog(
+                            context: context,
+                            onlogbuttonTap: (){},
+                            onregisterbuttonTap: (){},
+                          ),
+                        );
+                      },
                     ),
-                    onChanged: (value) {
-                      // controller.companyAndModel = value;
-                    },
-                    validator: (value) {
-                      // if (value!.isEmpty) {
-                      //   return "this faield require";
-                      // }
-                      // return null;
-                    },
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "city *",
+                      labelText: "model years *",
                     ),
                     onChanged: (value) {
-                      controller.city = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "public model *",
-                    ),
-                    onChanged: (value) {
-                      controller.publicModel = value;
+                      controller.model=value;
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -181,8 +192,51 @@ Widget CustomBottomSheet(
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "style",
+                      labelText: "price *",
                     ),
+                    onChanged: (value) {
+                      controller.price = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "horce count *",
+                    ),
+                    onChanged: (value) {
+                      controller.numHorse = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "hand count *",
+                    ),
+                    onChanged: (value) {
+                      controller.numHand = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(
                     height: 10,
@@ -192,7 +246,7 @@ Widget CustomBottomSheet(
                       labelText: "gearbox type *",
                     ),
                     onChanged: (value) {
-                      controller.gearBoxType = value;
+                      controller.gerType = value;
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -226,7 +280,7 @@ Widget CustomBottomSheet(
                       labelText: "fuel type ",
                     ),
                     onChanged: (value) {
-                      controller.fuleType = value;
+                      controller.fuelType = value;
                     },
                   ),
                   SizedBox(
@@ -237,7 +291,7 @@ Widget CustomBottomSheet(
                       labelText: "km *",
                     ),
                     onChanged: (value) {
-                      controller.km = value;
+                      controller.numKiloMeter = value;
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -251,10 +305,10 @@ Widget CustomBottomSheet(
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "price *",
+                      labelText: "motor size *",
                     ),
                     onChanged: (value) {
-                      controller.price = value;
+                      controller.motorSize = value;
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -271,7 +325,7 @@ Widget CustomBottomSheet(
                       labelText: "phone number *",
                     ),
                     onChanged: (value) {
-                      controller.phoneNumber = value;
+                      controller.phone = value;
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -285,10 +339,16 @@ Widget CustomBottomSheet(
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "whatsapp number ",
+                      labelText: "car status *",
                     ),
                     onChanged: (value) {
-                      controller.whatsNumber = value;
+                      controller.carStstus = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
                     },
                   ),
                   SizedBox(
@@ -296,10 +356,16 @@ Widget CustomBottomSheet(
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "preview place ",
+                      labelText: "location *",
                     ),
                     onChanged: (value) {
-                      controller.previewPlace = value;
+                      controller.location = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
                     },
                   ),
                   SizedBox(
@@ -307,10 +373,33 @@ Widget CustomBottomSheet(
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "preperation ",
+                      labelText: "exite Licence *",
                     ),
                     onChanged: (value) {
-                      controller.prepration = value;
+                      controller.certificExsit = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "end Licence *",
+                    ),
+                    onChanged: (value) {
+                      controller.certificEnd = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
                     },
                   ),
                   SizedBox(
@@ -323,7 +412,22 @@ Widget CustomBottomSheet(
                     ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 10,
+                  ),
+                  TextFormField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      labelText: "Note *",
+                    ),
+                    onChanged: (value) {
+                      controller.note = value;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "this faield require";
+                      }
+                      return null;
+                    },
                   ),
                   Container(
                     width: double.infinity,
@@ -342,7 +446,9 @@ Widget CustomBottomSheet(
                           fontSize: MySizes.text_size_medium,
                         ),
                       ),
-                      Switch(value: true, onChanged: (bool) {}),
+                      Switch(value: true, onChanged: (bool) {
+                        controller.paymType=bool.toString();
+                      }),
                     ],
                   ),
                   SizedBox(
@@ -400,45 +506,16 @@ Widget CustomBottomSheet(
   );
 }
 
-MyDialogLogIn(
-    {required Null Function() OnlogbuttonTap,
-    required Null Function() OnregisterbuttonTap,
-    required BuildContext context}) {
-  return Padding(
-    padding: const EdgeInsets.all(15.0),
-    child: Column(
-      children: [
-        Container(
-          width: double.infinity,
-          child: Row(
-            children: [
-              Icon(Icons.search),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: "company name",
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          width: MediaQuery.of(context).size.width * 0.5,
-          height: MediaQuery.of(context).size.width * 0.7,
-          child: ListView(),
-        ),
-        Container(
-          width: double.infinity,
-          child: TextButton(
-            onPressed: () {
-              Get.back();
-            },
-            child: Text("cancle"),
-          ),
-        )
-      ],
-    ),
-  );
-}
+
+
+
+
+
+
+
+
+
+
+
+
+

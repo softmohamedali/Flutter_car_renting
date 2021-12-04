@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fisrtflutter/ui/screens/account_screen.dart';
-import 'package:fisrtflutter/ui/screens/fav_screen.dart';
-import 'package:fisrtflutter/ui/screens/home_screen.dart';
-import 'package:fisrtflutter/ui/screens/notification_screen.dart';
-import 'package:fisrtflutter/ui/screens/register_screen.dart';
-import 'package:fisrtflutter/ui/screens/sellcar_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/account_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/fav_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/home_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/notification_screen.dart';
+import 'package:fisrtflutter/ui/screens/auth/register_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/sellcar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 

@@ -1,12 +1,13 @@
-import 'package:fisrtflutter/ui/mycolors.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 
 
 AppBar CustomToolBar({
   required String title,
-  onBackPress,
+  required bool showBack
 })
 {
   return AppBar(
@@ -21,14 +22,16 @@ AppBar CustomToolBar({
         color: MyColors.green,
       ),
     ),
-    actions: [
+    actions: showBack ?[
       IconButton(
-          onPressed: onBackPress,
+          onPressed: (){
+            Get.back();
+          },
           icon: Icon(
             Icons.navigate_next,
             color: MyColors.green,
           )
       )
-    ],
+    ]:[],
   );
 }

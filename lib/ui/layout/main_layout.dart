@@ -1,6 +1,6 @@
-import 'package:fisrtflutter/ui/mycolors.dart';
-import 'package:fisrtflutter/ui/screens/login_screen.dart';
-import 'package:fisrtflutter/ui/screens/register_screen.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
+import 'package:fisrtflutter/ui/screens/auth/login_screen.dart';
+import 'package:fisrtflutter/ui/screens/auth/register_screen.dart';
 import 'package:fisrtflutter/view_models/main_layout_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

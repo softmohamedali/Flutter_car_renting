@@ -1,13 +1,13 @@
 import 'package:fisrtflutter/ui/layout/main_layout.dart';
-import 'package:fisrtflutter/ui/screens/Terms_condition_screen.dart';
-import 'package:fisrtflutter/ui/screens/home_screen.dart';
-import 'package:fisrtflutter/ui/screens/login_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/Terms_condition_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/home_screen.dart';
+import 'package:fisrtflutter/ui/screens/auth/login_screen.dart';
 import 'package:fisrtflutter/view_models/auth_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../mycolors.dart';
+import '../../../utils/mycolors.dart';
 
 class RegisterScreen extends GetWidget<AuthViewModel> {
   var isshow = true;
