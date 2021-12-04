@@ -22,16 +22,16 @@ A new Flutter project.
 - Dependency injection (binding)
 - async await
 <br/>
+## home screen🌴🌴
 
+<img src="home.PNG" width="300">
+
+
+<br/>
+<br/>
 ## Log in 🌴🌴
 
 <img src="login.PNG" width="300">
-<br/>
-<br/>
-
-## Register🌴🌴
-
-<img src="register.PNG" width="300">
 
 <br/>
 <br/>
@@ -43,14 +43,15 @@ A new Flutter project.
 <br/>
 <br/>
 
-## full property to sell car🌴🌴
+## Register🌴🌴
 
-<img src="home.PNG" width="300">
+<img src="register.PNG" width="300">
 
 <br/>
 <br/>
 
-<img src="pic0.jpg" width="300">
+## search screen🌴🌴
+<img src="search.PNG" width="300">
 
 <br/>
 <br/>
