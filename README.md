@@ -25,13 +25,13 @@ A new Flutter project.
 
 ## Log in 🌴🌴
 
-<img src="login.jpg" width="300">
+<img src="login.PNG" width="300">
 <br/>
 <br/>
 
 ## Register🌴🌴
 
-<img src="register.jpg" width="300">
+<img src="register.png" width="300">
 
 <br/>
 <br/>
