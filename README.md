@@ -31,14 +31,14 @@ A new Flutter project.
 
 ## Register🌴🌴
 
-<img src="register.png" width="300">
+<img src="register.PNG" width="300">
 
 <br/>
 <br/>
 
 ## full property to sell car🌴🌴
 
-<img src="sellcar.jpg" width="300">
+<img src="sellcar.PNG" width="300">
 
 <br/>
 <br/>
