@@ -16,6 +16,7 @@ class SellCarScreen extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.main_background,
       key: scaffoldKey,
       appBar: CustomToolBar(title: "Sell My Car",showBack: false),
       floatingActionButton: GetX<MainLayoutViewModel>(
@@ -110,7 +111,7 @@ Widget CustomBottomSheet(
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(110),
-                                      color: MyColors.green,
+                                      color: MyColors.blue,
                                     ),
                                     padding: EdgeInsets.all(5),
                                     child: Text(
@@ -470,7 +471,7 @@ Widget CustomBottomSheet(
                   ),
                   Container(
                     width: double.infinity,
-                    color: MyColors.green,
+                    color: MyColors.blue,
                     child: TextButton(
                       onPressed: () {
                         formkey.currentState!.save();

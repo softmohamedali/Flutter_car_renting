@@ -23,4 +23,34 @@ class Constats{
   //firestore
   static final CARS_COLLECTION="cars";
   static final COMPNY_COLLECTION="compnyname";
+  static final CONTACT_COLLECTION="massages";
+
+
+  //general stuff
+  static final BASE_URL_NOTI="https://fcm.googleapis.com";
+  static final SERVER_KEY="AAAA-g5kQ3k:APA91bEa9Nu-CJG-YBlmWHXtQV-Wm3Tg1iI893KA9UX9jAIqhzumvKVFY1CW8JLimT_YD7WNxF1cLAupXyGcN7LPPTecmFq1XVt6fShHfbolG98IShMTLlVXeYzIvWix6LeAMaFM_HiC";
+  static final CONTENT_TYPE="application/json";
+  static final TOPIC="/topics/myTopic";
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

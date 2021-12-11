@@ -9,6 +9,7 @@ class LegacyPrivacyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.main_background,
       appBar: CustomToolBar(title: "Legacy Privacy",showBack: true),
       body: Container(
         width: double.infinity,
@@ -17,7 +18,7 @@ class LegacyPrivacyScreen extends StatelessWidget {
             SizedBox(height: 20,),
             Icon(
               Icons.directions_car_rounded,
-              color: MyColors.green,
+              color: MyColors.blue,
               size: 100,
             ),
             SizedBox(height:10,),
@@ -31,11 +32,12 @@ class LegacyPrivacyScreen extends StatelessWidget {
                 ),),
                 Text(" Cars",style: TextStyle(
                     fontSize: 30,
-                    color: MyColors.green
+                    color: MyColors.blue
                 ),),
               ],
             ),
-            Text("")
+            SizedBox(height: 80,),
+            Center(child: Text("legacy and Privacy"))
           ],
         ),
       ),

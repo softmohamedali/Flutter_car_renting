@@ -15,6 +15,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.main_background,
       appBar: CustomToolBar(title: "Search", showBack: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -43,6 +44,7 @@ class SearchScreen extends StatelessWidget {
                     ),
                     onChanged: (value) {
                       searchViewModel.query=value;
+                      searchViewModel.getSearchCar();
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -79,9 +81,25 @@ class SearchScreen extends StatelessWidget {
               ],
             ),
             Center(
-              child: GetX<SearchViewModel>(
-                builder:  (contrller) =>
-                contrller.getCarSearchProgress.value ? CircularProgressIndicator():Center(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GetX<SearchViewModel>(
+                    builder:  (contrller) =>
+                    contrller.getCarSearchProgress.value ? CircularProgressIndicator():Center(),
+                  ),
+                  GetX<SearchViewModel>(
+                    builder:  (contrller) =>
+                    contrller.carsSearch.value.isEmpty
+                        ? Text("No Data Found \n Enter text to searsh"
+                        ,textAlign: TextAlign.center,
+                      style: TextStyle(
+                      fontSize: 25,
+                        color: MyColors.blue
+                    ),)
+                        : Center(),
+                  ),
+                ],
               ),
             )
           ],

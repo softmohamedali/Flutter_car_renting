@@ -70,14 +70,12 @@ Widget ProductItem({
                                         {
                                           favController.deleteFav(car);
                                           isfav=false;
-                                          // Get.snackbar("isFavbe=false", "message");
                                         }else{
                                         favController.InsertFavorite(car);
                                         isfav=true;
-                                        Get.snackbar("isFavbe=true", "message");
                                       }
                                     },
-                                    icon:isfav ? Icon(Icons.favorite,color: MyColors.green,) :
+                                    icon:isfav ? Icon(Icons.favorite,color: MyColors.blue,) :
                                     Icon(Icons.favorite_border)
                                 ),
                               ),
@@ -94,7 +92,7 @@ Widget ProductItem({
                           km,
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                            color: MyColors.green,
+                            color: MyColors.blue,
                             fontSize: 12,
                           ),
                         ),

@@ -1,5 +1,6 @@
 import 'package:fisrtflutter/ui/widget/car_item_widget.dart';
 import 'package:fisrtflutter/ui/widget/mywidget.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/view_models/FavViewModel.dart';
 import 'package:fisrtflutter/view_models/home_view_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,6 +16,7 @@ class FavScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.main_background,
       appBar: CustomToolBar(title: "My Favorite",showBack: false),
       body: Container(
         padding: EdgeInsets.all(10),

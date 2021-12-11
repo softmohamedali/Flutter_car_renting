@@ -30,7 +30,7 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
             },
             icon: Icon(
               Icons.arrow_back_ios,
-              color: MyColors.green,
+              color: MyColors.blue,
               size: 30,
             ),
           ),
@@ -179,7 +179,7 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                         ),
                         Container(
                           width: double.infinity,
-                          color: MyColors.green,
+                          color: MyColors.blue,
                           child: MaterialButton(
                             onPressed: () {
                               _formKey.currentState!.save();

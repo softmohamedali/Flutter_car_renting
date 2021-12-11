@@ -29,9 +29,9 @@ class SellCarViewModel extends GetxController{
   var companySearshValue="";
   SellCarViewModel(){
     getMySells();
+    getCompanys();
   }
   saveCarInfo()async{
-
     try{
       showSellProgress.value=true;
       var car=Cars(name: name.value, model: model, img: img, numHorse: numHorse,
@@ -52,7 +52,6 @@ class SellCarViewModel extends GetxController{
         showSellProgress.value=false;
         Get.snackbar("Error", error);
       });
-
     }catch(e)
     {
       Get.snackbar("Error", e.toString());
@@ -82,8 +81,8 @@ class SellCarViewModel extends GetxController{
 
   getCompanys()async
   {
-    compnysSearsh.value=[];
     showCompnyProgress.value=true;
+    compnysSearsh.value=[];
     await FirebaseSource().getCompanys(companySearshValue).get().then((querysnap){
       querysnap.docs.forEach((element) {
         compnysSearsh.add(Company.fromJson(element.data()));

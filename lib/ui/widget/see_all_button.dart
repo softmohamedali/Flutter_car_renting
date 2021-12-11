@@ -10,7 +10,7 @@ Widget SeeAllButton(String text,Widget screen) {
       Get.to(screen);
     },
     style: OutlinedButton.styleFrom(
-      side: BorderSide(width: 1.0, color: MyColors.green),
+      side: BorderSide(width: 1.0, color: MyColors.blue),
       padding: EdgeInsets.symmetric(
         vertical: 0,
         horizontal: 10,
@@ -19,7 +19,7 @@ Widget SeeAllButton(String text,Widget screen) {
     ),
     icon: Icon(
       Icons.navigate_next,
-      color: MyColors.green,
+      color: MyColors.blue,
       size: 18,
     ),
     label: Padding(
@@ -28,7 +28,7 @@ Widget SeeAllButton(String text,Widget screen) {
         text,
         style: TextStyle(
           fontSize: 12,
-          color: MyColors.green,
+          color: MyColors.blue,
         ),
       ),
     ),

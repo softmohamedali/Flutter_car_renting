@@ -9,33 +9,72 @@ class LanguageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomToolBar(title: "App Language",showBack: true),
+      backgroundColor: MyColors.main_background,
+      appBar: CustomToolBar(title: "App Language", showBack: true),
       body: Container(
         width: double.infinity,
         child: Column(
           children: [
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Icon(
               Icons.directions_car_rounded,
-              color: MyColors.green,
+              color: MyColors.blue,
               size: 100,
             ),
-            SizedBox(height:10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Moali",style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: MyColors.text_2
-                ),),
-                Text(" Cars",style: TextStyle(
-                    fontSize: 30,
-                    color: MyColors.green
-                ),),
+                Text(
+                  "Moali",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: MyColors.text_2),
+                ),
+                Text(
+                  " Cars",
+                  style: TextStyle(fontSize: 30, color: MyColors.blue),
+                ),
               ],
             ),
-            Text("")
+            SizedBox(height: 40,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  color: MyColors.blue,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "englishe",
+                      style: TextStyle(
+                        color: MyColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 40,),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  color: MyColors.blue,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "عربي",
+                      style: TextStyle(
+                        color: MyColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:fisrtflutter/ui/widget/car_item_widget.dart';
 import 'package:fisrtflutter/ui/widget/mywidget.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/view_models/FavViewModel.dart';
 import 'package:fisrtflutter/view_models/car_by_compony_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,6 +20,7 @@ class CarByCompanyScreen extends StatelessWidget {
     exControllerCarCompny.carName=company;
     exControllerCarCompny.getCarsByComny();
     return Scaffold(
+      backgroundColor: MyColors.main_background,
       appBar: CustomToolBar(title: "${company}", showBack: true),
       body: Container(
         padding: EdgeInsets.all(10),

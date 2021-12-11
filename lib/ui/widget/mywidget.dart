@@ -19,7 +19,7 @@ AppBar CustomToolBar({
       style: TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.bold,
-        color: MyColors.green,
+        color: MyColors.blue,
       ),
     ),
     actions: showBack ?[
@@ -29,7 +29,7 @@ AppBar CustomToolBar({
           },
           icon: Icon(
             Icons.navigate_next,
-            color: MyColors.green,
+            color: MyColors.blue,
           )
       )
     ]:[],

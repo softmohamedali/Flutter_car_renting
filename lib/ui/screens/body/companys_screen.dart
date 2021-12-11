@@ -1,5 +1,6 @@
 import 'package:fisrtflutter/ui/widget/car_catigory_wiidget.dart';
 import 'package:fisrtflutter/ui/widget/mywidget.dart';
+import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/view_models/companys_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class CompanysScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.main_background,
       appBar: CustomToolBar(title: "Companys", showBack: true),
       body: Container(
         padding: EdgeInsets.all(15),

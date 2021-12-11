@@ -37,7 +37,7 @@ class MainLayout extends StatelessWidget {
                     controller.onChangeIndex(index);
                   }
                 },
-                selectedItemColor: MyColors.green,
+                selectedItemColor: MyColors.blue,
                 unselectedItemColor: MyColors.unactive_icon,
                 type: BottomNavigationBarType.fixed,
                 items: [

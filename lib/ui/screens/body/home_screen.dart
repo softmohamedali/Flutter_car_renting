@@ -1,3 +1,5 @@
+import 'package:fisrtflutter/data/firebase_source/FirebaseSource.dart';
+import 'package:fisrtflutter/data/remote_source/notificationServices.dart';
 import 'package:fisrtflutter/ui/screens/body/all_cars_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/companys_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/search_screen.dart';
@@ -26,12 +28,14 @@ class HomeScreen extends GetWidget{
   var showbottom = false;
   var exController=Get.find<FavViewModel>();
   @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: MyColors.main_background,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: MyColors.green),
+        iconTheme: IconThemeData(color: MyColors.blue),
         backgroundColor: MyColors.main_background,
         elevation: 0,
         title: GestureDetector(
@@ -67,59 +71,62 @@ class HomeScreen extends GetWidget{
           vertical: 0,
           horizontal: 10,
         ),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "Famous companies",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Famous companies",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                SeeAllButton("See all",CompanysScreen())
-              ],
-            ),
-            GetBuilder<HomeViewModel>(
-              builder:(controller) {
-                return Container(
-                  height:110,
-                  child: ListView.builder(
-                    itemBuilder: (context, index) {
-                      return CatigoryItem(
-                          controller.companys[index].name,
-                          controller.companys[index].img
-                      );
-                    },
-                    itemCount:controller.companys.length,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                );
-              }
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "Last cars",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+                  SeeAllButton("See all",CompanysScreen())
+                ],
+              ),
+              GetBuilder<HomeViewModel>(
+                builder:(controller) {
+                  return Container(
+                    height:110,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return CatigoryItem(
+                            controller.companys[index].name,
+                            controller.companys[index].img
+                        );
+                      },
+                      itemCount:controller.companys.length,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  );
+                }
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Last cars",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                SeeAllButton("See all",AllCarsScreen())
-              ],
-            ),
-            Expanded(
-              child: Container(
+                  SeeAllButton("See all",AllCarsScreen())
+                ],
+              ),
+              Container(
                 child: GetX<HomeViewModel>(
                   builder:(controller) => ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return ProductItem(
                           name: controller.homeCars[index].name,
@@ -138,8 +145,8 @@ class HomeScreen extends GetWidget{
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       drawer: Drawer(
@@ -197,7 +204,7 @@ class HomeScreen extends GetWidget{
                     },
                     child: Text(
                       controller.auth()==null ?"Log in" : "log out",
-                      style: TextStyle(color: MyColors.green,fontWeight: FontWeight.w900,
+                      style: TextStyle(color: MyColors.blue,fontWeight: FontWeight.w900,
                           fontSize: 25,fontStyle: FontStyle.italic),
                     ),
                   ),
@@ -206,6 +213,16 @@ class HomeScreen extends GetWidget{
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          FirebaseSource().getToken();
+          NotificationService().sendFcm(
+            title: "hhh",
+            body: "ggggggggggggg",
+            fcmToken: "ekrZmWFCR8usBqEhhwwCtc:APA91bHC7UuW18L8j2kTYJeqSHD4xqv1M94UyQc9zH5Zen5hjBs8BJIFxfFMudsiPLWA6bqN2_UxjSPxNOsaMN-wNOqmC76rzozNM6oJN8frbWDhXuiLaazIBxOOyATxqoIfkIy5H9LL",
+          );
+        },
       ),
     );
   }
@@ -220,11 +237,11 @@ DrawerItem(
   return ListTile(
     leading: Icon(
       icon,
-      color: MyColors.green,
+      color: MyColors.blue,
     ),
     title: Text(
       title,
-      style: TextStyle(color: MyColors.green),
+      style: TextStyle(color: MyColors.blue),
     ),
     onTap: onTab,
   );

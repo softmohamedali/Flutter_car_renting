@@ -8,6 +8,7 @@ class SearchViewModel extends GetxController {
   var getCarSearchProgress=false.obs;
 
   getSearchCar() async {
+    carsSearch.value=[];
     getCarSearchProgress.value=true;
     await FirebaseSource().getSearchCars(query).get().then((value) {
       value.docs.forEach((element) {
