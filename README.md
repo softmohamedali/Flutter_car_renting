@@ -2,15 +2,76 @@
 
 A new Flutter project.
 
-## Getting Started
+# moali car
+## features
+- Authentication (Log in ,Register)
+- show cars
+- search
+- save in favorits
+- log out
+- add your cars to sell it
+- notification
 
-This project is a starting point for a Flutter application.
+## Technology i used it
+- sqflite
+- firebase firestore
+- firebase dataStorage
+- firebase Auth
+- Navigation
+- getx
+- Dependency injection (binding)
+- async await
+<br/>
+## home screen🌴🌴
 
-A few resources to get you started if this is your first Flutter project:
+<img src="home.PNG" width="300">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<br/>
+<br/>
+## Log in 🌴🌴
+
+<img src="login.PNG" width="300">
+
+<br/>
+<br/>
+
+## full property to sell car🌴🌴
+
+<img src="sellcar.PNG" width="300">
+
+<br/>
+<br/>
+
+## Register🌴🌴
+
+<img src="register.PNG" width="300">
+
+<br/>
+<br/>
+
+## search screen🌴🌴
+<img src="search.PNG" width="300">
+
+<br/>
+<br/>
+
+<img src="pic5.jpg" width="300">
+
+<br/>
+<br/>
+
+<img src="pic6.jpg" width="300">
+
+<br/>
+<br/>
+
+<img src="pic7.jpg" width="300">
+
+<br/>
+<br/>
+
+<img src="pic8.jpg" width="300">
+
+<br/>
+<br/>
