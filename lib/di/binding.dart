@@ -5,6 +5,7 @@ import 'package:fisrtflutter/view_models/companys_viewmodel.dart';
 import 'package:fisrtflutter/view_models/contact_viewmodel.dart';
 import 'package:fisrtflutter/view_models/home_view_model.dart';
 import 'package:fisrtflutter/view_models/main_layout_viewmodel.dart';
+import 'package:fisrtflutter/view_models/notificationviewmodel.dart';
 import 'package:fisrtflutter/view_models/search_viewmodel.dart';
 import 'package:fisrtflutter/view_models/sell_car_viewmodel.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class Binding extends Bindings{
     Get.lazyPut(()=>CarByComponyViewModel(),fenix: true);
     Get.lazyPut(() => SearchViewModel(),fenix:true);
     Get.lazyPut(() => ContactViewModel(),fenix:true);
-
+    Get.lazyPut(() => NotificationViewModel(),fenix:true);
 
   }
 

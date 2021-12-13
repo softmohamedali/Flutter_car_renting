@@ -4,6 +4,7 @@ import 'package:fisrtflutter/ui/screens/body/all_cars_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/companys_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/search_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/whoweare_screen.dart';
+import 'package:fisrtflutter/utils/constants.dart';
 import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/ui/widget/car_catigory_wiidget.dart';
 import 'package:fisrtflutter/ui/widget/car_item_widget.dart';
@@ -216,11 +217,10 @@ class HomeScreen extends GetWidget{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          FirebaseSource().getToken();
           NotificationService().sendFcm(
             title: "hhh",
             body: "ggggggggggggg",
-            fcmToken: "ekrZmWFCR8usBqEhhwwCtc:APA91bHC7UuW18L8j2kTYJeqSHD4xqv1M94UyQc9zH5Zen5hjBs8BJIFxfFMudsiPLWA6bqN2_UxjSPxNOsaMN-wNOqmC76rzozNM6oJN8frbWDhXuiLaazIBxOOyATxqoIfkIy5H9LL",
+            fcmToken: Constats.TOPIC,
           );
         },
       ),

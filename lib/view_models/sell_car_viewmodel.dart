@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fisrtflutter/data/firebase_source/FirebaseSource.dart';
+import 'package:fisrtflutter/data/remote_source/notificationServices.dart';
 import 'package:fisrtflutter/models/cars.dart';
 import 'package:fisrtflutter/models/company.dart';
 import 'package:fisrtflutter/models/user.dart';
+import 'package:fisrtflutter/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -20,17 +22,17 @@ class SellCarViewModel extends GetxController{
   late String? userId=auth.currentUser?.uid.toString();
   late Rxn<File> imymg=Rxn();
   var name="".obs;
-
-
   var showSellProgress=false.obs;
   var showCompnyProgress=false.obs;
   var myCarsSels=<Cars>[].obs;
   var compnysSearsh=<Company>[].obs;
   var companySearshValue="";
+
   SellCarViewModel(){
     getMySells();
     getCompanys();
   }
+
   saveCarInfo()async{
     try{
       showSellProgress.value=true;
@@ -51,11 +53,11 @@ class SellCarViewModel extends GetxController{
       }).catchError((error){
         showSellProgress.value=false;
         Get.snackbar("Error", error);
+        _showNotificationNewCar();
       });
     }catch(e)
     {
       Get.snackbar("Error", e.toString());
-      print(e.toString()+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
     }
 
   }
@@ -68,12 +70,12 @@ class SellCarViewModel extends GetxController{
       value.docs.forEach((element) {
         myCarsSels.add(Cars.fromJson(element.data()));
       });
-      print(",mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm${myCarsSels.length}");
     }).catchError((error){
       Get.snackbar("error", error.toString());
     });
   }
 
+  //to get image from stdio
   void getImg() async{
     var myImg=await ImagePicker().pickImage(source: ImageSource.gallery);
     imymg.value=File(myImg!.path);
@@ -92,5 +94,14 @@ class SellCarViewModel extends GetxController{
       Get.snackbar("error", error.toString());
       showCompnyProgress.value=false;
     });
+  }
+
+  _showNotificationNewCar()
+  {
+    NotificationService().sendFcm(
+      title: "MoAli App News",
+      body: "New Car Added You Can cheak It Know In New Cars",
+      fcmToken: Constats.TOPIC,
+    );
   }
 }

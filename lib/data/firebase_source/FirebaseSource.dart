@@ -45,11 +45,5 @@ class FirebaseSource{
        firestore.collection(Constats.CONTACT_COLLECTION)
            .doc().set(msg.toJson());
 
-   Future<void> getToken() async{
-     await fcm.getToken().then((value) {
-       print(value);
-     });
-
-   }
 
 }

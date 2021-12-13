@@ -1,8 +1,9 @@
 import 'package:fisrtflutter/models/cars.dart';
+import 'package:fisrtflutter/models/notification.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
-class CarsDataBase{
+class CarsDataBase {
   CarsDataBase._();
 
   static final CarsDataBase db = CarsDataBase._();
@@ -16,11 +17,9 @@ class CarsDataBase{
   }
 
   Future<Database> initDb() async {
-    Database _database = await openDatabase(
-        "carsdb.db",
-        version: 1,
+    Database _database = await openDatabase("carsdb.db", version: 1,
         onCreate: (Database db, int version) async {
-          await db.execute('''
+      await db.execute('''
         CREATE TABLE cars (
         id INTEGER PRIMARYKEY AUTO GENRATE,
         name TEXT ,
@@ -43,7 +42,13 @@ class CarsDataBase{
         price TEXT,
         userId TEXT)
         ''');
-        });
+      await db.execute('''
+        CREATE TABLE noti (
+        id INTEGER PRIMARYKEY AUTO GENRATE,
+        title TEXT ,
+        body TEXT)
+        ''');
+    });
     return _database;
   }
 
@@ -56,26 +61,43 @@ class CarsDataBase{
     );
   }
 
-  delelteFav(Cars car) async{
+  insertNoti(MyNotification noti) async {
     Database _db = await database;
-    await _db.delete('cars',where: 'userId = ?',whereArgs: [car.userId])
-    .then((value) => {
-      Get.snackbar("deletedd", "message")
-    }).catchError((onError){
-      Get.snackbar("error ${onError}", "message");
-      print("error ${onError}");
-    });
-
+    await _db.insert(
+      'noti',
+      noti.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.ignore,
+    );
   }
 
-  Future<List<Cars>> getAllCars() async{
+  delelteFav(Cars car) async {
+    Database _db = await database;
+    await _db
+        .delete('cars', where: 'userId = ?', whereArgs: [car.userId])
+        .then((value) => {Get.snackbar("deletedd", "message")})
+        .catchError((onError) {
+          Get.snackbar("error ${onError}", "message");
+          print("error ${onError}");
+        });
+  }
+
+  Future<List<Cars>> getAllCars() async {
     Database _db = await database;
 
-    List<Map> list=await _db.query('cars',);
+    List<Map> list = await _db.query(
+      'cars',
+    );
 
     return list.isNotEmpty ? list.map((e) => Cars.fromJson(e)).toList() : [];
   }
 
+  Future<List<MyNotification>> getAllNotification() async {
+    Database _db = await database;
 
+    List<Map> list = await _db.query(
+      'noti',
+    );
 
+    return list.isNotEmpty ? list.map((e) => MyNotification.fromJson(e)).toList() : [];
+  }
 }
