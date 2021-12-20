@@ -1,41 +1,20 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fisrtflutter/models/cars.dart';
 import 'package:fisrtflutter/models/notification.dart';
 import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/ui/screens/auth/login_screen.dart';
 import 'package:fisrtflutter/ui/screens/auth/register_screen.dart';
+import 'package:fisrtflutter/view_models/FavViewModel.dart';
 import 'package:fisrtflutter/view_models/main_layout_viewmodel.dart';
 import 'package:fisrtflutter/view_models/notificationviewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-Future<void> firebaseMassigingHandler(RemoteMessage massage)async
-{
-  var vm=Get.find<NotificationViewModel>();
-  vm.InsertNoti(MyNotification(title: "title", body: "body"));
-  print("onnnnnnnnnnnnnnnnnnnnnnnnnnnnfirebaseMassigingHandler");
-}
+
 class MainLayout extends StatelessWidget {
 
   GlobalKey myKey=GlobalKey<ScaffoldState>();
-  @override
-  initState(){
-    var fcm=FirebaseMessaging.instance;
-    fcm.subscribeToTopic("myTopic");
-    FirebaseMessaging.onMessage.listen((event) {
-      print("onnnnnnnnnnnnnnnnnnnnnnnnnnnasasagge");
-      var vm=Get.find<NotificationViewModel>();
-      vm.InsertNoti(MyNotification(title: "title", body: "body"));
-    });
 
-    FirebaseMessaging.onMessageOpenedApp.listen((event) {
-      var vm=Get.find<NotificationViewModel>();
-      vm.InsertNoti(MyNotification(title: "title", body: "body"));
-      print("onnnnnnnnnnnnnnnnnnnnnnnnnnnnMessageOpenedApp");
-    });
-
-    FirebaseMessaging.onBackgroundMessage(firebaseMassigingHandler);
-
-  }
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MainLayoutViewModel>(

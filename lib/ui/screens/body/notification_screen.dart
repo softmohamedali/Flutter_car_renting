@@ -4,12 +4,15 @@ import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/view_models/notificationviewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 
 class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var con=Get.find<NotificationViewModel>();
+    con.getNoti();
     return Scaffold(
       backgroundColor: MyColors.main_background,
       appBar: CustomToolBar(
@@ -29,6 +32,8 @@ class NotificationScreen extends StatelessWidget {
                         return NotificationItem(
                             title: controller.notis.value[index].title!,
                             body:controller.notis.value[index].body!,
+                          imgUrl: "",
+                          time: "12:3"
                         );
                       },
                       itemCount: controller.notis.value.length,

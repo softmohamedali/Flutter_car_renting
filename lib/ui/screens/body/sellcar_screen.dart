@@ -1,5 +1,7 @@
+import 'package:fisrtflutter/ui/widget/dialog_select_item.dart';
 import 'package:fisrtflutter/ui/widget/mywidget.dart';
 import 'package:fisrtflutter/ui/widget/search_company_dialog.dart';
+import 'package:fisrtflutter/utils/constants.dart';
 import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/utils/mysizes.dart';
 import 'package:fisrtflutter/ui/widget/car_item_widget.dart';
@@ -186,6 +188,16 @@ Widget CustomBottomSheet(
                         return "this faield require";
                       }
                       return null;
+                    },
+                    readOnly: true,
+                    onTap: (){
+                      Get.defaultDialog(
+                        title: "Select Company",
+                        content: DialogSelectItem(
+                          context: context,
+                          list: Constats.dateTime,
+                        ),
+                      );
                     },
                   ),
                   SizedBox(
