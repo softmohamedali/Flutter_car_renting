@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:fisrtflutter/utils/constants.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:http/http.dart' as http;
 
 class NotificationService {
@@ -18,7 +19,7 @@ class NotificationService {
         body: jsonEncode({
           "to": fcmToken,
           "priority": "high",
-          "notification": {"title": title, "body": body}
+          "notification": {"title": title, "body": body,"time":DateTime.now()}
         }),
         headers: {
           'Content-Type': 'application/json',

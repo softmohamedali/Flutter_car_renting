@@ -1,7 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fisrtflutter/data/firebase_source/FirebaseSource.dart';
 import 'package:fisrtflutter/data/remote_source/notificationServices.dart';
-import 'package:fisrtflutter/data/remote_source/notification_api.dart';
 import 'package:fisrtflutter/ui/screens/body/all_cars_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/companys_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/search_screen.dart';
@@ -216,16 +215,6 @@ class HomeScreen extends GetWidget{
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          // NotificationService().sendFcm(
-          //   title: "hhh",
-          //   body: "ggggggggggggg",
-          //   fcmToken: Constats.TOPIC,
-          // );
-          NotificationApi.showNotification(id:2,title: "fuuuu",body: "ji",payload: "lll");
-        },
       ),
     );
   }

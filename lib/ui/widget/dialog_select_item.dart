@@ -12,9 +12,11 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class DialogSelectItem extends GetWidget {
   List<String> list;
+  Null Function(String) onItemClick;
   DialogSelectItem({
     required BuildContext context,
     required this.list,
+    required this.onItemClick
   }){}
   var sellCarViewModel=Get.find<SellCarViewModel>();
   @override
@@ -29,7 +31,8 @@ class DialogSelectItem extends GetWidget {
             child: ListView.separated(
                 itemBuilder: (context,indexx) => compnyItem(
                     name: list[indexx],
-                    context: context
+                    context: context,
+                  onItemClick: onItemClick
                 ),
                 separatorBuilder: (context,indexx) =>SizedBox(height: 10,),
                 itemCount: list.length,
@@ -52,13 +55,12 @@ class DialogSelectItem extends GetWidget {
 
 compnyItem({
   required String name,
-  required BuildContext context
+  required BuildContext context,
+  required Null Function(String) onItemClick
 }){
-  var controller=Get.find<SellCarViewModel>();
   return GestureDetector(
     onTap: (){
-      controller.name.value=name;
-      Get.back();
+      onItemClick(name);
     },
     child: Column(
       children: [

@@ -9,7 +9,9 @@ import 'package:fisrtflutter/view_models/main_layout_viewmodel.dart';
 import 'package:fisrtflutter/view_models/sell_car_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class SellCarScreen extends GetWidget {
   var scaffoldKey = GlobalKey<ScaffoldState>();
@@ -176,34 +178,42 @@ Widget CustomBottomSheet(
                   SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "model years *",
+                  GetX<SellCarViewModel>(
+                    builder:(controller) => TextFormField(
+                      controller:TextEditingController(text: controller.model.value),
+                      decoration: InputDecoration(
+                        labelText: "model years *",
+                      ),
+                      onChanged: (value) {
+                        controller.model.value=value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Select Model year",
+                          content: DialogSelectItem(
+                            context: context,
+                            list: Constats.dateTime,
+                            onItemClick: (item){
+                              controller.model.value=item;
+                              Get.back();
+                            },
+                          ),
+                        );
+                      },
                     ),
-                    onChanged: (value) {
-                      controller.model=value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
-                    readOnly: true,
-                    onTap: (){
-                      Get.defaultDialog(
-                        title: "Select Company",
-                        content: DialogSelectItem(
-                          context: context,
-                          list: Constats.dateTime,
-                        ),
-                      );
-                    },
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: "price *",
                     ),
@@ -221,6 +231,7 @@ Widget CustomBottomSheet(
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: "horce count *",
                     ),
@@ -238,6 +249,7 @@ Widget CustomBottomSheet(
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: "hand count *",
                     ),
@@ -254,52 +266,115 @@ Widget CustomBottomSheet(
                   SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "gearbox type *",
+                  GetX<SellCarViewModel>(
+                    builder:(controller) => TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "gearbox type *",
+                      ),
+                      onChanged: (value) {
+                        controller.gerType.value = value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Select Gear Type",
+                          content: DialogSelectItem(
+                            context: context,
+                            list: Constats.gearType,
+                            onItemClick: (item){
+                              controller.gerType.value=item;
+                              Get.back();
+                            },
+                          ),
+                        );
+                      },
+                      controller:TextEditingController(text: controller.gerType.value),
                     ),
-                    onChanged: (value) {
-                      controller.gerType = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GetX<SellCarViewModel>(
+                    builder:(controller) => TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "color *",
+                      ),
+                      onChanged: (value) {
+                        controller.color.value = value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Select color",
+                          content:   Column(
+                            children: [
+                              ColorPicker(
+                                pickerColor: MyColors.green,
+                                onColorChanged: (color){
+                                  controller.color.value = "${color.value}";
+                                },
+                              ),
+                              Container(
+                                width: double.infinity,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  child: Text("ok"),
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                      controller:TextEditingController(text: controller.color.value),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GetX<SellCarViewModel>(
+                    builder:(controller)=> TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "fuel type ",
+                      ),
+                      onChanged: (value) {
+                        controller.fuelType.value= value;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Select Gear Type",
+                          content: DialogSelectItem(
+                            context: context,
+                            list: Constats.fuelType,
+                            onItemClick: (item){
+                              controller.fuelType.value=item;
+                              Get.back();
+                            },
+                          ),
+                        );
+                      },
+                      controller:TextEditingController(text: controller.fuelType.value),
+                    ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "color *",
-                    ),
-                    onChanged: (value) {
-                      controller.color = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "fuel type ",
-                    ),
-                    onChanged: (value) {
-                      controller.fuelType = value;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: "km *",
                     ),
@@ -317,6 +392,7 @@ Widget CustomBottomSheet(
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: "motor size *",
                     ),
@@ -334,6 +410,7 @@ Widget CustomBottomSheet(
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       labelText: "phone number *",
                     ),
@@ -367,53 +444,100 @@ Widget CustomBottomSheet(
                   SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "location *",
+                  GetX<SellCarViewModel>(
+                    builder:(controller)=> TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "location *",
+                      ),
+                      onChanged: (value) {
+                        controller.location.value = value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Select Location",
+                          content: DialogSelectItem(
+                            context: context,
+                            list: Constats.location,
+                            onItemClick: (item){
+                              controller.location.value=item;
+                              Get.back();
+                            },
+                          ),
+                        );
+                      },
+                      controller:TextEditingController(text: controller.location.value),
                     ),
-                    onChanged: (value) {
-                      controller.location = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "exite Licence *",
+                  GetX<SellCarViewModel>(
+                    builder:(controller)=> TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "exite Licence *",
+                      ),
+                      onChanged: (value) {
+                        controller.certificExsit.value = value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        Get.defaultDialog(
+                          title: "Exite licence",
+                          content: DialogSelectItem(
+                            context: context,
+                            list: Constats.exiteLiecence,
+                            onItemClick: (item){
+                              controller.certificExsit.value=item;
+                              Get.back();
+                            },
+                          ),
+                        );
+                      },
+                      controller:TextEditingController(text: controller.certificExsit.value),
                     ),
-                    onChanged: (value) {
-                      controller.certificExsit = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "end Licence *",
+                  GetX<SellCarViewModel>(
+                    builder:(controller)=> TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "end Licence *",
+                      ),
+                      onChanged: (value) {
+                        controller.certificEnd.value = value;
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "this faield require";
+                        }
+                        return null;
+                      },
+                      readOnly: true,
+                      onTap: (){
+                        DatePicker.showDatePicker(context,
+                            showTitleActions: true,
+                            minTime: DateTime(1988, 3, 5),
+                            maxTime: DateTime(2030, 6, 7),
+                            onConfirm: (date) {
+                              controller.certificEnd.value = date.toString();
+                            }, currentTime: DateTime.now(), locale: LocaleType.en);
+                      },
+                      controller:TextEditingController(text: controller.certificEnd.value),
                     ),
-                    onChanged: (value) {
-                      controller.certificEnd = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "this faield require";
-                      }
-                      return null;
-                    },
                   ),
                   SizedBox(
                     height: 50,
@@ -459,9 +583,13 @@ Widget CustomBottomSheet(
                           fontSize: MySizes.text_size_medium,
                         ),
                       ),
-                      Switch(value: true, onChanged: (bool) {
-                        controller.paymType=bool.toString();
-                      }),
+                      GetX<SellCarViewModel>(
+                        builder:(controller)=>
+                            Switch(value: controller.paymType.value,
+                                onChanged: (bool) {
+                          controller.paymType.value=bool;
+                        }),
+                      ),
                     ],
                   ),
                   SizedBox(

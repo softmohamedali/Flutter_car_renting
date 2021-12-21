@@ -13,6 +13,7 @@ class SearchCompanyDialog extends GetWidget {
   var sellCarViewModel=Get.find<SellCarViewModel>();
   @override
   Widget build(BuildContext context) {
+    sellCarViewModel.getAllCompny();
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -29,8 +30,15 @@ class SearchCompanyDialog extends GetWidget {
                       labelText: "company name",
                     ),
                     onChanged: (value){
-                      sellCarViewModel.companySearshValue=value;
-                      sellCarViewModel.getCompanys();
+                      if(value.isEmpty)
+                        {
+                          sellCarViewModel.companySearshValue=value;
+                          sellCarViewModel.getAllCompny();
+                        }else{
+                        sellCarViewModel.companySearshValue=value;
+                        sellCarViewModel.getCompanys();
+                      }
+
                     },
                   ),
                 ),

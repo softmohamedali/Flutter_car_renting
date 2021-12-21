@@ -16,12 +16,18 @@ class SellCarViewModel extends GetxController{
   FirebaseFirestore firestore=FirebaseFirestore.instance;
   FirebaseAuth auth=FirebaseAuth.instance;
 
-  late String model="",img="",numHorse="",numHand="",motorSize="",price="";
-  late String numKiloMeter="",color="",gerType="",carStstus="",fuelType="";
-  late String location="",paymType="",certificExsit="",certificEnd="",phone="", note="";
+  late String img="",numHorse="",numHand="",motorSize="",price="";
+  late String numKiloMeter="",carStstus="";
+  late String phone="", note="";
   late String? userId=auth.currentUser?.uid.toString();
   late Rxn<File> imymg=Rxn();
-  var name="".obs;
+  var name="".obs,model="".obs,certificEnd="".obs;
+  RxBool paymType=false.obs;
+  var gerType="".obs;
+  var fuelType="".obs;
+  var color="".obs;
+  var location="".obs;
+  var certificExsit="".obs;
   var showSellProgress=false.obs;
   var showCompnyProgress=false.obs;
   var myCarsSels=<Cars>[].obs;
@@ -36,11 +42,13 @@ class SellCarViewModel extends GetxController{
   saveCarInfo()async{
     try{
       showSellProgress.value=true;
-      var car=Cars(name: name.value, model: model, img: img, numHorse: numHorse,
+      var car=Cars(
+          name: name.value, model: model.value, img: img, numHorse: numHorse,
           numHand: numHand, motorSize: motorSize, numKiloMeter: numKiloMeter,
-          color: color, gerType: gerType, carStstus: carStstus, fuelType: fuelType,
-          location: location, paymType: paymType, certificExsit: certificExsit,
-          certificEnd: certificEnd, phone: phone, note: note,price: price,userId: userId!);
+          color: color.value, gerType: gerType.value, carStstus: carStstus,
+          fuelType: fuelType.value,paymType: paymType.value.toString(),phone: phone,
+          location: location.value,certificExsit: certificExsit.value,
+          certificEnd: certificEnd.value,note: note,price: price,userId: userId!);
       if(imymg.value==null)
       {
         Get.snackbar("Error", "please Select Img");
@@ -94,6 +102,21 @@ class SellCarViewModel extends GetxController{
       Get.snackbar("error", error.toString());
       showCompnyProgress.value=false;
     });
+  }
+
+  getAllCompny() async{
+    showCompnyProgress.value=true;
+    compnysSearsh.value=[];
+    await firestore.collection("compnyname").get().then((value){
+      value.docs.forEach((element) {
+        compnysSearsh.add(Company.fromJson(element.data()));
+      });
+      showCompnyProgress.value=false;
+    }).catchError((error) {
+      Get.snackbar("error", error.toString());
+      showCompnyProgress.value = false;
+    });
+    update();
   }
 
   _showNotificationNewCar()

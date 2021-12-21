@@ -1,7 +1,6 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:fisrtflutter/data/remote_source/notification_api.dart';
 import 'package:fisrtflutter/di/binding.dart';
 import 'package:fisrtflutter/models/notification.dart';
 import 'package:fisrtflutter/ui/layout/main_layout.dart';

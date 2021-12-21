@@ -33,6 +33,11 @@ class Constats{
   static final TOPIC="/topics/myTopic";
 
   static final dateTime=["2010","2011","2012","2013"];
+  static final gearType=["Manual","Automatique","hybrid"];
+  static final fuelType=["benzen","gas","batroll","hybrid"];
+  static final exiteLiecence=["yes","No"];
+  static final location=["Cairo","Alexandria","Tanta","Menofia","Aswan",
+  "Sena","Demiate","Aseute"];
 
 }
 
