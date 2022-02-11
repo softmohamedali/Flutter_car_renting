@@ -55,22 +55,22 @@ A new Flutter project.
 
 <br/>
 <br/>
-
-<img src="pic5.jpg" width="300">
+## property screen🌴🌴
+<img src="Screenshot_1644546342.jpg" width="300">
 
 <br/>
 <br/>
-
+## property screen🌴🌴
 <img src="pic6.jpg" width="300">
 
 <br/>
 <br/>
-
+## property screen🌴🌴
 <img src="pic7.jpg" width="300">
 
 <br/>
 <br/>
-
+## property screen🌴🌴
 <img src="pic8.jpg" width="300">
 
 <br/>
