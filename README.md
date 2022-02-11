@@ -75,7 +75,7 @@ A new Flutter project.
 
 ## property screen🌴🌴
 
-<img src="pic7.jpg" width="300">
+<img src="Screenshot_1644546342.png" width="300">
 
 <br/>
 <br/>
