@@ -55,8 +55,10 @@ A new Flutter project.
 
 <br/>
 <br/>
+
 ## property screen🌴🌴
-<img src="Screenshot_1644546342.jpg" width="300">
+
+<img src="Screenshot_1644545999.png" width="300">
 
 <br/>
 <br/>
