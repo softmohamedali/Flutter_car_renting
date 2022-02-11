@@ -80,9 +80,9 @@ A new Flutter project.
 <br/>
 <br/>
 
-## property screen🌴🌴
+## favorite screen🌴🌴
 
-<img src="pic8.jpg" width="300">
+<img src="Screenshot_1644546325.png" width="300">
 
 <br/>
 <br/>
