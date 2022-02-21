@@ -57,8 +57,6 @@ class MainLayout extends StatelessWidget {
                       icon: Icon(Icons.car_repair), label: "sell car"),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.favorite_border), label: "favorit"),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.person), label: "account"),
                 ],
               ),
 

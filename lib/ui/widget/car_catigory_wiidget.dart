@@ -22,9 +22,9 @@ Widget CatigoryItem(String name, String image) {
             height:90,
             child: Column(
               children: [
-                Image(
-                  image: NetworkImage(
-                      image),
+                FadeInImage.assetNetwork(
+                  image: image,
+                  placeholder: "assets/imd_place_holder.webp",
                   width: 60,
                   height: 60,
                 ),

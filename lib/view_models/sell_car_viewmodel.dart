@@ -58,10 +58,10 @@ class SellCarViewModel extends GetxController{
       await firestore.collection("cars").doc().set(car.toJson())
           .then((value) {
         showSellProgress.value=false;
+        _showNotificationNewCar();
       }).catchError((error){
         showSellProgress.value=false;
         Get.snackbar("Error", error);
-        _showNotificationNewCar();
       });
     }catch(e)
     {

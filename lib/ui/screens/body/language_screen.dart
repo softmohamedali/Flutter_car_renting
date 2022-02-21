@@ -2,6 +2,7 @@ import 'package:fisrtflutter/ui/widget/mywidget.dart';
 import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 
 class LanguageScreen extends StatelessWidget {
   const LanguageScreen({Key? key}) : super(key: key);
@@ -42,33 +43,43 @@ class LanguageScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  color: MyColors.blue,
-                  child: TextButton(
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(width: 1.0, color:MyColors.blue),
+                    ),
                     onPressed: () {},
-                    child: Text(
-                      "englishe",
-                      style: TextStyle(
-                        color: MyColors.white,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "englishe",
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: 40,),
+                SizedBox(
+                  width: 40,
+                ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  color: MyColors.blue,
-                  child: TextButton(
+                  child: OutlinedButton(
                     onPressed: () {},
-                    child: Text(
-                      "عربي",
-                      style: TextStyle(
-                        color: MyColors.white,
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(width: 1.0, color:MyColors.blue),
+                      backgroundColor: MyColors.blue,
+                    ),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "عربي",
+                        style: TextStyle(color: MyColors.white),
                       ),
                     ),
                   ),

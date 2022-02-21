@@ -19,7 +19,7 @@ class NotificationService {
         body: jsonEncode({
           "to": fcmToken,
           "priority": "high",
-          "notification": {"title": title, "body": body,"time":DateTime.now()}
+          "notification": {"title": title, "body": body}
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -34,8 +34,3 @@ class NotificationService {
   }
 }
 
-void sendNotificationsTime() async {
-  await Future.delayed(const Duration(seconds: 5));
-  await NotificationService()
-      .sendFcm(title: "title", body: "body", fcmToken: "your fcm token");
-}

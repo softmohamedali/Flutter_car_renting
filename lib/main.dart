@@ -5,6 +5,7 @@ import 'package:fisrtflutter/di/binding.dart';
 import 'package:fisrtflutter/models/notification.dart';
 import 'package:fisrtflutter/ui/layout/main_layout.dart';
 import 'package:fisrtflutter/ui/screens/body/fav_screen.dart';
+import 'package:fisrtflutter/ui/style/theme.dart';
 import 'package:fisrtflutter/view_models/FavViewModel.dart';
 import 'package:fisrtflutter/view_models/notificationviewmodel.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,8 @@ class MyApp extends StatelessWidget{
     return GetMaterialApp(
       initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
+      darkTheme: MyTheme.dark,
+      theme: MyTheme.light,
       home:MainLayout(),
     );
   }

@@ -35,8 +35,9 @@ Widget ProductItem({
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Row(
             children: [
-              Image(
-                image: NetworkImage(image),
+              FadeInImage.assetNetwork(
+                image: image,
+                placeholder: "assets/imd_place_holder.webp",
                 width: 130,
                 height: 110,
                 fit: BoxFit.fill,

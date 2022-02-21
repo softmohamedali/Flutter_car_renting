@@ -4,6 +4,7 @@ import 'package:fisrtflutter/data/remote_source/notificationServices.dart';
 import 'package:fisrtflutter/ui/screens/body/all_cars_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/companys_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/search_screen.dart';
+import 'package:fisrtflutter/ui/screens/body/setting_screen.dart';
 import 'package:fisrtflutter/ui/screens/body/whoweare_screen.dart';
 import 'package:fisrtflutter/utils/constants.dart';
 import 'package:fisrtflutter/utils/mycolors.dart';
@@ -29,7 +30,7 @@ class HomeScreen extends GetWidget{
   var scaffoldKey = GlobalKey<ScaffoldState>();
   var showbottom = false;
   var exController=Get.find<FavViewModel>();
-  @override
+
 
   @override
   Widget build(BuildContext context) {
@@ -193,6 +194,14 @@ class HomeScreen extends GetWidget{
                     Get.to(LanguageScreen());
                   },
                 ),
+                DrawerItem(
+                  icon: Icons.settings,
+                  title: "Setting",
+                  onTab: () {
+                    Get.to(SettingScreen());
+                  },
+                ),
+                SizedBox(height: 20,),
                 GetBuilder<AuthViewModel>(
                   builder:(controller) => TextButton(
                     onPressed: () {
@@ -215,6 +224,15 @@ class HomeScreen extends GetWidget{
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          NotificationService().sendFcm(
+            title: "MoAli App News",
+            body: "New Car Added You Can cheak It Know In New Cars",
+            fcmToken: Constats.TOPIC,
+          );
+        },
       ),
     );
   }

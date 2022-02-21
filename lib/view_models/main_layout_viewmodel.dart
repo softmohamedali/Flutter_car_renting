@@ -20,12 +20,13 @@ class MainLayoutViewModel extends GetxController {
 
   get currentIndex => _currentIndex;
 
+
+
   var screens = [
     HomeScreen(),
     NotificationScreen(),
     SellCarScreen(),
     FavScreen(),
-    AccountScreen(),
   ];
   void logout() => firebaseAuth.signOut();
   void onChangeIndex(index) {
