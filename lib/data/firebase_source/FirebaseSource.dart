@@ -4,8 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:fisrtflutter/models/massage.dart';
-import 'package:fisrtflutter/models/user.dart';
 import 'package:fisrtflutter/utils/constants.dart';
 
 class FirebaseSource{
@@ -13,9 +11,7 @@ class FirebaseSource{
    FirebaseStorage storage=FirebaseStorage.instance;
    FirebaseAuth auth=FirebaseAuth.instance;
    FirebaseMessaging fcm=FirebaseMessaging.instance;
-   saveUserInfo(Userx user)async{
-     await firestore.collection("users").doc(user.userId).set(user.toJson());
-   }
+
 
 
    Future<String> saveImg(File imgfile)async{
@@ -41,9 +37,6 @@ class FirebaseSource{
        .startAt([name.trim()])
        .endAt([name.trim()+"\uf8ff"]);
 
-   sendMassage(Massage msg) =>
-       firestore.collection(Constats.CONTACT_COLLECTION)
-           .doc().set(msg.toJson());
 
 
 }
