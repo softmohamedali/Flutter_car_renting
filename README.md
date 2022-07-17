@@ -22,6 +22,7 @@ A new Flutter project.
 - Dependency injection (binding)
 - async await
 <br/>
+
 ## home screen🌴🌴
 
 <img src="home.PNG" width="300">
@@ -29,6 +30,7 @@ A new Flutter project.
 
 <br/>
 <br/>
+
 ## Log in 🌴🌴
 
 <img src="login.PNG" width="300">
@@ -51,27 +53,36 @@ A new Flutter project.
 <br/>
 
 ## search screen🌴🌴
+
 <img src="search.PNG" width="300">
 
 <br/>
 <br/>
 
-<img src="pic5.jpg" width="300">
+## notification🌴🌴
+
+<img src="Screenshot_1644545999.png" width="300">
 
 <br/>
 <br/>
 
-<img src="pic6.jpg" width="300">
+## drawer navigation🌴🌴
+
+<img src="Screenshot_1644546282.png" width="300">
 
 <br/>
 <br/>
 
-<img src="pic7.jpg" width="300">
+## property screen🌴🌴
+
+<img src="Screenshot_1644546342.png" width="300">
 
 <br/>
 <br/>
 
-<img src="pic8.jpg" width="300">
+## favorite screen🌴🌴
+
+<img src="Screenshot_1644546325.png" width="300">
 
 <br/>
 <br/>
