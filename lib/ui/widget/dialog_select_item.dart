@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:fisrtflutter/utils/mycolors.dart';
 import 'package:fisrtflutter/view_models/sell_car_viewmodel.dart';
