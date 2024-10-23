@@ -58,7 +58,7 @@ class HomeScreen extends GetWidget{
                   color: MyColors.black,
                 ),
                 Text(
-                  "Click to searsh about car",
+                  "Click To Search About Car",
                   style: TextStyle(
                     color: MyColors.black,
                     fontSize: 13,
@@ -81,7 +81,7 @@ class HomeScreen extends GetWidget{
                 children: [
                   Expanded(
                     child: Text(
-                      "Famous companies",
+                      "Famous Brands",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
@@ -89,7 +89,7 @@ class HomeScreen extends GetWidget{
                       ),
                     ),
                   ),
-                  SeeAllButton("See all",CompanysScreen())
+                  SeeAllButton("See All",CompanysScreen())
                 ],
               ),
               GetBuilder<HomeViewModel>(
@@ -114,7 +114,7 @@ class HomeScreen extends GetWidget{
                 children: [
                   Expanded(
                     child: Text(
-                      "Last cars",
+                      "Most Recent Cars",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
@@ -122,7 +122,7 @@ class HomeScreen extends GetWidget{
                       ),
                     ),
                   ),
-                  SeeAllButton("See all",AllCarsScreen())
+                  SeeAllButton("See All",AllCarsScreen())
                 ],
               ),
               Container(
@@ -225,15 +225,15 @@ class HomeScreen extends GetWidget{
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          NotificationService().sendFcm(
-            title: "MoAli App News",
-            body: "New Car Added You Can cheak It Know In New Cars",
-            fcmToken: Constats.TOPIC,
-          );
-        },
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: (){
+      //     NotificationService().sendFcm(
+      //       title: "MoAli App News",
+      //       body: "New Car Added You Can cheak It Know In New Cars",
+      //       fcmToken: Constats.TOPIC,
+      //     );
+      //   },
+      // ),
     );
   }
 

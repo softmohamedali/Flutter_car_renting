@@ -35,13 +35,6 @@ Widget ProductItem({
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Row(
             children: [
-              FadeInImage.assetNetwork(
-                image: image,
-                placeholder: "assets/imd_place_holder.webp",
-                width: 130,
-                height: 110,
-                fit: BoxFit.fill,
-              ),
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
@@ -60,7 +53,8 @@ Widget ProductItem({
                                 color: Colors.black,
                               ),
                             ),
-                          ),GetBuilder<FavViewModel>(
+                          ),
+                          GetBuilder<FavViewModel>(
                             builder:(favController) => Container(
                                 padding: EdgeInsets.zero,
                                 width: 30,
@@ -125,6 +119,13 @@ Widget ProductItem({
                     ],
                   ),
                 ),
+              ),
+              FadeInImage.assetNetwork(
+                image: image,
+                placeholder: "assets/imd_place_holder.webp",
+                width: 130,
+                height: 110,
+                fit: BoxFit.fill,
               ),
             ],
           ),

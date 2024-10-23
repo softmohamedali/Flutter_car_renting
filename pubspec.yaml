@@ -23,28 +23,36 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  sqflite: ^2.0.0+4
-  flutter_bloc: ^7.3.1
-  get: ^4.3.8
-  firebase_core: "^1.9.0"
-  cloud_firestore: "^3.1.0"
-  firebase_auth: "^3.1.5"
-  google_sign_in: ^5.2.1
-  image_picker: ^0.8.4+4
-  path: ^1.8.0
-  firebase_storage: ^10.1.0
-  firebase_messaging: "^11.2.0"
-  flutter_local_notifications: ^9.1.5
-  url_launcher: ^6.0.17
-  dio: ^4.0.4
-  rxdart: ^0.27.3
-  flutter_datetime_picker: ^1.5.1
-  flutter_colorpicker: ^1.0.3
-  #for work notification in back graound
-  firebase_analytics: ^8.1.2
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  sqflite:
+  flutter_bloc:
+  get: ^4.6.5
+  cloud_firestore:
+  google_sign_in:
+  image_picker:
+  path:
+  firebase_storage:
+  flutter_local_notifications:
+  url_launcher:
+  dio:
+  rxdart:
+  flutter_colorpicker:
+  firebase_messaging: ^14.6.5
+  firebase_auth: ^4.7.0
+  firebase_core: ^2.15.0
+  firebase_crashlytics: ^3.4.0
+  firebase_analytics:
+  firebase_dynamic_links: ^5.4.3
+  firebase_app_check:
+  file: ^7.0.0
   cupertino_icons: ^1.0.2
+  get_storage: ^2.0.3
+
+  #UI
+  cached_network_image: ^3.2.0
+  carousel_slider: ^4.1.1
+  flutter_svg: ^2.0.7
+  shimmer: ^3.0.0
+  pinput: ^2.2.31
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +73,7 @@ flutter:
   assets:
     - assets/imd_place_holder.webp
     - assets/bb.png
+    - assets/icons/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -9,7 +9,6 @@ import 'package:fisrtflutter/view_models/main_layout_viewmodel.dart';
 import 'package:fisrtflutter/view_models/sell_car_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
@@ -528,13 +527,13 @@ Widget CustomBottomSheet(
                       },
                       readOnly: true,
                       onTap: (){
-                        DatePicker.showDatePicker(context,
-                            showTitleActions: true,
-                            minTime: DateTime(1988, 3, 5),
-                            maxTime: DateTime(2030, 6, 7),
-                            onConfirm: (date) {
-                              controller.certificEnd.value = date.toString();
-                            }, currentTime: DateTime.now(), locale: LocaleType.en);
+                        // DatePicker.showDatePicker(context,
+                        //     showTitleActions: true,
+                        //     minTime: DateTime(1988, 3, 5),
+                        //     maxTime: DateTime(2030, 6, 7),
+                        //     onConfirm: (date) {
+                        //       controller.certificEnd.value = date.toString();
+                        //     }, currentTime: DateTime.now(), locale: LocaleType.en);
                       },
                       controller:TextEditingController(text: controller.certificEnd.value),
                     ),
